@@ -1,0 +1,21 @@
+# Frontend
+factoryx-frontend/node_modules/
+factoryx-frontend/dist/
+factoryx-frontend/.env
+factoryx-frontend/.env.local
+factoryx-frontend/.env.production
+
+# Backend
+factoryx-backend/target/
+factoryx-backend/.env
+
+# IDE
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

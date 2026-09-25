@@ -1,0 +1,1515 @@
+/* =========================================================
+   FACTORYX - INVENTORY
+   Dark Industrial / Teal / Yellow / Cyan UI
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background: #03191c;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.inventory-page {
+    min-height: 100vh;
+
+    background:
+            radial-gradient(
+                    circle at 72% 5%,
+                    rgba(0, 205, 211, 0.18),
+                    transparent 32%
+            ),
+            radial-gradient(
+                    circle at 45% 80%,
+                    rgba(0, 128, 135, 0.14),
+                    transparent 38%
+            ),
+            linear-gradient(
+                    135deg,
+                    #021619 0%,
+                    #06272a 48%,
+                    #031618 100%
+            );
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.inventory-sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 285px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #071c1f 0%,
+                    #04191c 100%
+            );
+
+    border-right: 1px solid rgba(255, 209, 66, 0.14);
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.inventory-logo {
+    height: 112px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 28px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 25px;
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.inventory-logo span {
+    color: #ffd33e;
+}
+
+.inventory-logo-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #122000;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #ffe16a,
+                    #ffc438
+            );
+
+    border-radius: 9px;
+
+    box-shadow:
+            0 0 25px rgba(255, 198, 45, 0.25);
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.inventory-menu {
+    padding: 27px 15px;
+    overflow-y: auto;
+}
+
+.inventory-menu-title {
+    margin: 0;
+
+    padding: 0 17px 13px;
+
+    color: #789396;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 2.5px;
+}
+
+.inventory-operation-title {
+    margin-top: 27px;
+}
+
+
+.inventory-menu-item {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 17px;
+
+    margin-bottom: 4px;
+
+    color: #b2c2c4;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+            background 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+}
+
+.inventory-menu-item svg {
+    flex-shrink: 0;
+}
+
+.inventory-menu-item:hover {
+    color: #ffffff;
+
+    background:
+            rgba(255, 210, 55, 0.07);
+}
+
+
+/* ACTIVE */
+
+.inventory-menu-item.active {
+    color: #ffd33e;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(103, 91, 30, 0.43),
+                    rgba(73, 67, 27, 0.25)
+            );
+
+    border-left: 3px solid #ffd33e;
+
+    box-shadow:
+            0 0 20px rgba(255, 204, 50, 0.08);
+}
+
+.inventory-menu-item.active svg {
+    color: #ffd33e;
+
+    filter:
+            drop-shadow(
+                    0 0 6px rgba(255, 206, 53, 0.5)
+            );
+}
+
+.inventory-arrow {
+    margin-left: auto;
+}
+
+.ai-item {
+    color: #ffd33e;
+}
+
+
+/* =========================================================
+   SIDEBAR USER
+========================================================= */
+
+.inventory-sidebar-user {
+    min-height: 78px;
+
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 28px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    flex-shrink: 0;
+}
+
+.inventory-user-avatar {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #162000;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #ffdb55,
+                    #f0a72d
+            );
+
+    font-size: 12px;
+    font-weight: 900;
+
+    box-shadow:
+            0 0 16px rgba(255, 197, 50, 0.16);
+}
+
+.inventory-user-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.inventory-user-info strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.inventory-user-info span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #789396;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.inventory-main {
+    min-height: 100vh;
+
+    margin-left: 285px;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.inventory-topbar {
+    height: 112px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    background:
+            rgba(3, 22, 24, 0.58);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(16px);
+}
+
+.inventory-breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    font-size: 13px;
+}
+
+.inventory-breadcrumb span {
+    color: #789396;
+}
+
+.inventory-breadcrumb b {
+    color: #405b5e;
+}
+
+.inventory-breadcrumb strong {
+    color: #dbe5e5;
+}
+
+
+/* TOP RIGHT */
+
+.inventory-top-right {
+    display: flex;
+    align-items: center;
+}
+
+.inventory-notification {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 18px;
+
+    border: none;
+
+    color: #ffd33e;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    filter:
+            drop-shadow(
+                    0 0 7px rgba(255, 206, 50, 0.38)
+            );
+}
+
+.inventory-notification span {
+    position: absolute;
+
+    top: 1px;
+    right: 0;
+
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #142000;
+
+    background: #ffd33e;
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+
+/* TOP USER */
+
+.inventory-top-user {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.inventory-top-avatar {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #162000;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #ffdb55,
+                    #f0a72d
+            );
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.inventory-top-user strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.inventory-top-user small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #789396;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.inventory-content {
+    padding: 35px 40px 60px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.inventory-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 27px;
+}
+
+.inventory-page-header > div p {
+    margin: 0 0 8px;
+
+    color: #e8c64d;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+            0 0 10px rgba(255, 207, 55, 0.3);
+}
+
+.inventory-page-header h1 {
+    margin: 0;
+
+    font-size: 36px;
+    line-height: 1;
+
+    font-weight: 850;
+
+    letter-spacing: -1.2px;
+}
+
+.inventory-page-header > div > span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #9eb2b4;
+
+    font-size: 14px;
+}
+
+
+/* ADD BUTTON */
+
+.inventory-add-button {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    color: #162000;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #ffe05c,
+                    #ffbd35
+            );
+
+    font-size: 13px;
+    font-weight: 850;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 0 25px rgba(255, 196, 48, 0.25);
+
+    transition: 0.2s ease;
+}
+
+.inventory-add-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 0 35px rgba(255, 196, 48, 0.42);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.inventory-stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 17px;
+}
+
+.inventory-stat-card {
+    position: relative;
+
+    min-height: 112px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    overflow: hidden;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(8, 56, 61, 0.95),
+                    rgba(4, 31, 34, 0.98)
+            );
+
+    border: 1px solid rgba(255, 205, 54, 0.75);
+
+    border-radius: 11px;
+
+    box-shadow:
+            0 0 20px rgba(255, 199, 42, 0.10);
+}
+
+.inventory-stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -45px;
+    bottom: -55px;
+
+    background:
+            rgba(0, 220, 220, 0.10);
+
+    border-radius: 50%;
+
+    filter: blur(18px);
+}
+
+.inventory-stat-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffd33e;
+
+    background:
+            rgba(255, 205, 50, 0.12);
+
+    border-radius: 10px;
+}
+
+.inventory-stat-icon.cyan {
+    color: #46eff1;
+
+    background:
+            rgba(0, 213, 220, 0.15);
+}
+
+.inventory-stat-icon.yellow {
+    color: #ffd33e;
+
+    background:
+            rgba(255, 204, 49, 0.13);
+}
+
+.inventory-stat-icon.red {
+    color: #ffb45d;
+
+    background:
+            rgba(255, 110, 65, 0.12);
+}
+
+.inventory-stat-card > div:nth-child(2) {
+    min-width: 0;
+}
+
+.inventory-stat-card > div:nth-child(2) span {
+    display: block;
+
+    color: #c2cecf;
+
+    font-size: 11px;
+}
+
+.inventory-stat-card > div:nth-child(2) strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 28px;
+
+    line-height: 1;
+}
+
+.inventory-stat-card > div:nth-child(2) small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #71898b;
+
+    font-size: 9px;
+}
+
+.inventory-stat-card > b {
+    position: absolute;
+
+    top: 15px;
+    right: 14px;
+
+    padding: 6px 8px;
+
+    border-radius: 6px;
+
+    color: #55e8b2;
+
+    background:
+            rgba(0, 70, 52, 0.48);
+
+    font-size: 9px;
+}
+
+.warning-card > b {
+    color: #ffd85c;
+
+    background:
+            rgba(86, 71, 18, 0.45);
+}
+
+.danger-card > b {
+    color: #ff9b72;
+
+    background:
+            rgba(91, 36, 25, 0.42);
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.inventory-filter {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 14px;
+
+    margin-bottom: 17px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(8, 56, 61, 0.90),
+                    rgba(4, 39, 43, 0.96)
+            );
+
+    border: 1px solid rgba(65, 220, 226, 0.32);
+
+    border-radius: 11px;
+
+    box-shadow:
+            inset 0 0 25px rgba(0, 205, 214, 0.04);
+}
+
+
+/* SEARCH */
+
+.inventory-search {
+    flex: 1;
+
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 0 15px;
+
+    color: #e1c54d;
+
+    background:
+            rgba(3, 27, 30, 0.82);
+
+    border: 1px solid rgba(79, 196, 201, 0.42);
+
+    border-radius: 8px;
+}
+
+.inventory-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+.inventory-search input::placeholder {
+    color: #759092;
+}
+
+
+/* SELECT */
+
+.inventory-select {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 12px;
+
+    color: #9eb0b2;
+
+    background:
+            rgba(3, 27, 30, 0.82);
+
+    border: 1px solid rgba(79, 196, 201, 0.40);
+
+    border-radius: 8px;
+}
+
+.inventory-select span {
+    white-space: nowrap;
+
+    font-size: 10px;
+}
+
+.inventory-select select {
+    min-width: 90px;
+
+    appearance: none;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #d7e4e4;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.inventory-select option {
+    background: #062528;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   INVENTORY PANEL
+========================================================= */
+
+.inventory-panel {
+    overflow: hidden;
+
+    background:
+            linear-gradient(
+                    145deg,
+                    rgba(6, 42, 45, 0.96),
+                    rgba(3, 27, 30, 0.98)
+            );
+
+    border: 1px solid rgba(70, 209, 215, 0.27);
+
+    border-radius: 11px;
+
+    box-shadow:
+            0 0 24px rgba(0, 190, 200, 0.05);
+}
+
+
+/* PANEL HEADER */
+
+.inventory-panel-header {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inventory-panel-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.inventory-panel-header p {
+    margin: 5px 0 0;
+
+    color: #769194;
+
+    font-size: 11px;
+}
+
+.inventory-panel-header > span {
+    padding: 7px 11px;
+
+    color: #50e9e9;
+
+    background:
+            rgba(0, 190, 198, 0.10);
+
+    border: 1px solid rgba(50, 216, 222, 0.18);
+
+    border-radius: 7px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.inventory-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.inventory-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+}
+
+.inventory-table thead {
+    background:
+            rgba(2, 24, 27, 0.62);
+}
+
+.inventory-table th {
+    height: 49px;
+
+    padding: 0 20px;
+
+    color: #789497;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-align: left;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.inventory-table td {
+    height: 82px;
+
+    padding: 10px 20px;
+
+    color: #aebfc0;
+
+    font-size: 11px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.inventory-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.inventory-table tbody tr:hover {
+    background:
+            rgba(0, 214, 220, 0.045);
+}
+
+.inventory-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ITEM */
+
+.inventory-item-name {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.inventory-item-name > div {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffd33e;
+
+    background:
+            rgba(255, 205, 50, 0.10);
+
+    border-radius: 8px;
+}
+
+.inventory-item-name section strong {
+    display: block;
+
+    color: #edf4f4;
+
+    font-size: 12px;
+}
+
+.inventory-item-name section span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #688184;
+
+    font-size: 9px;
+}
+
+
+/* STOCK */
+
+.stock-level {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 120px;
+}
+
+.stock-bar {
+    width: 65px;
+    height: 6px;
+
+    overflow: hidden;
+
+    background:
+            rgba(255, 255, 255, 0.08);
+
+    border-radius: 10px;
+}
+
+.stock-bar span {
+    display: block;
+
+    height: 100%;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #00c9c7,
+                    #ffd33e
+            );
+
+    border-radius: 10px;
+
+    box-shadow:
+            0 0 7px rgba(0, 225, 220, 0.35);
+}
+
+.stock-level strong {
+    color: #dce9e9;
+
+    font-size: 11px;
+}
+
+
+/* STATUS */
+
+.inventory-status {
+    display: inline-flex;
+    align-items: center;
+
+    min-width: 76px;
+
+    justify-content: center;
+
+    padding: 7px 9px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.stock-ok {
+    color: #3be8b1;
+
+    background:
+            rgba(0, 87, 61, 0.40);
+
+    border: 1px solid rgba(43, 207, 154, 0.25);
+}
+
+.stock-low {
+    color: #ffd85a;
+
+    background:
+            rgba(91, 73, 18, 0.40);
+
+    border: 1px solid rgba(221, 191, 62, 0.30);
+}
+
+.stock-out {
+    color: #ff9b79;
+
+    background:
+            rgba(91, 39, 28, 0.40);
+
+    border: 1px solid rgba(255, 118, 79, 0.25);
+}
+
+
+/* ACTION */
+
+.inventory-action {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    color: #8ca3a5;
+
+    background: transparent;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    letter-spacing: 1px;
+}
+
+.inventory-action:hover {
+    color: #ffd33e;
+
+    background:
+            rgba(255, 204, 50, 0.08);
+}
+
+
+/* =========================================================
+   AI INSIGHT
+========================================================= */
+
+.inventory-ai {
+    min-height: 112px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px 22px;
+
+    margin-top: 17px;
+
+    background:
+            linear-gradient(
+                    110deg,
+                    rgba(6, 51, 53, 0.95),
+                    rgba(4, 32, 35, 0.98)
+            );
+
+    border: 1px solid rgba(255, 206, 53, 0.32);
+
+    border-radius: 11px;
+
+    box-shadow:
+            0 0 25px rgba(255, 205, 50, 0.06);
+}
+
+.inventory-ai-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffd33e;
+
+    background:
+            rgba(255, 207, 53, 0.10);
+
+    border-radius: 10px;
+
+    box-shadow:
+            0 0 15px rgba(255, 205, 50, 0.10);
+}
+
+.inventory-ai > div:nth-child(2) {
+    flex: 1;
+}
+
+.inventory-ai > div:nth-child(2) > span {
+    color: #ffd33e;
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.inventory-ai h3 {
+    margin: 5px 0 4px;
+
+    font-size: 14px;
+}
+
+.inventory-ai p {
+    margin: 0;
+
+    max-width: 850px;
+
+    color: #91a7a9;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+.inventory-ai button {
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 15px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 208, 56, 0.45);
+
+    border-radius: 7px;
+
+    color: #ffd33e;
+
+    background:
+            rgba(255, 205, 50, 0.08);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.inventory-ai button:hover {
+    background:
+            rgba(255, 205, 50, 0.15);
+
+    box-shadow:
+            0 0 18px rgba(255, 205, 50, 0.12);
+}
+
+
+/* =========================================================
+   RESPONSIVE - 1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .inventory-sidebar {
+        width: 245px;
+    }
+
+    .inventory-main {
+        margin-left: 245px;
+    }
+
+    .inventory-content {
+        padding: 30px 25px 50px;
+    }
+
+    .inventory-topbar {
+        padding: 0 25px;
+    }
+
+    .inventory-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .inventory-sidebar {
+        width: 75px;
+    }
+
+    .inventory-main {
+        margin-left: 75px;
+    }
+
+    .inventory-logo {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .inventory-logo > div:last-child {
+        display: none;
+    }
+
+    .inventory-menu-title {
+        display: none;
+    }
+
+    .inventory-menu-item {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .inventory-menu-item span,
+    .inventory-arrow {
+        display: none;
+    }
+
+    .inventory-sidebar-user {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .inventory-user-info,
+    .inventory-sidebar-user > svg {
+        display: none;
+    }
+
+    .inventory-page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .inventory-add-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .inventory-filter {
+        flex-wrap: wrap;
+    }
+
+    .inventory-search {
+        flex-basis: 100%;
+    }
+
+    .inventory-select {
+        flex: 1;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 650px
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .inventory-sidebar {
+        display: none;
+    }
+
+    .inventory-main {
+        margin-left: 0;
+    }
+
+    .inventory-topbar {
+        height: 78px;
+
+        padding: 0 18px;
+    }
+
+    .inventory-breadcrumb {
+        font-size: 11px;
+    }
+
+    .inventory-top-user > div:nth-child(2),
+    .inventory-top-user > svg {
+        display: none;
+    }
+
+    .inventory-notification {
+        margin-right: 5px;
+    }
+
+    .inventory-content {
+        padding: 24px 15px 40px;
+    }
+
+    .inventory-page-header h1 {
+        font-size: 30px;
+    }
+
+    .inventory-page-header > div > span {
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+    .inventory-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-stat-card {
+        min-height: 100px;
+    }
+
+    .inventory-filter {
+        padding: 10px;
+
+        gap: 9px;
+    }
+
+    .inventory-select {
+        width: 100%;
+
+        flex: none;
+    }
+
+    .inventory-panel-header {
+        padding: 0 15px;
+    }
+
+    .inventory-ai {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .inventory-ai button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 420px
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .inventory-topbar {
+        padding: 0 12px;
+    }
+
+    .inventory-content {
+        padding: 20px 10px 35px;
+    }
+
+    .inventory-page-header h1 {
+        font-size: 27px;
+    }
+
+    .inventory-stat-card {
+        padding: 14px;
+    }
+
+    .inventory-stat-card > div:nth-child(2) strong {
+        font-size: 25px;
+    }
+
+    .inventory-search {
+        height: 45px;
+    }
+
+    .inventory-select {
+        height: 45px;
+    }
+
+    .inventory-panel-header {
+        min-height: 72px;
+    }
+
+    .inventory-panel-header h2 {
+        font-size: 15px;
+    }
+
+    .inventory-ai {
+        padding: 17px;
+    }
+
+}
