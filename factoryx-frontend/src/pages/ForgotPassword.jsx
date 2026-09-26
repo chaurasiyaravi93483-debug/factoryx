@@ -35,6 +35,16 @@ function ForgotPassword() {
 
 
     // =====================================================
+    // BACKEND API URL
+    // =====================================================
+
+    const API_BASE_URL = (
+        import.meta.env.VITE_API_URL ||
+        "https://factoryx-1.onrender.com"
+    ).replace(/\/$/, "");
+
+
+    // =====================================================
     // SEND OTP
     // =====================================================
 
@@ -55,7 +65,7 @@ function ForgotPassword() {
             setLoading(true);
 
             const response = await fetch(
-                "http://localhost:8081/api/auth/forgot-password",
+                `${API_BASE_URL}/api/auth/forgot-password`,
                 {
                     method: "POST",
 
@@ -69,7 +79,13 @@ function ForgotPassword() {
                 }
             );
 
-            const data = await response.json();
+            let data = {};
+
+            try {
+                data = await response.json();
+            } catch {
+                data = {};
+            }
 
             if (!response.ok) {
                 throw new Error(
@@ -91,10 +107,19 @@ function ForgotPassword() {
                 err
             );
 
-            setError(
-                err.message ||
-                "Unable to send OTP. Please try again."
-            );
+            if (err instanceof TypeError) {
+
+                setError(
+                    "Unable to connect to the server. Please try again."
+                );
+
+            } else {
+
+                setError(
+                    err.message ||
+                    "Unable to send OTP. Please try again."
+                );
+            }
 
         } finally {
 
@@ -128,13 +153,12 @@ function ForgotPassword() {
             setLoading(true);
 
             const response = await fetch(
-                "http://localhost:8081/api/auth/verify-otp",
+                `${API_BASE_URL}/api/auth/verify-otp`,
                 {
                     method: "POST",
 
                     headers: {
-                        "Content-Type":
-                            "application/json",
+                        "Content-Type": "application/json",
                     },
 
                     body: JSON.stringify({
@@ -144,7 +168,13 @@ function ForgotPassword() {
                 }
             );
 
-            const data = await response.json();
+            let data = {};
+
+            try {
+                data = await response.json();
+            } catch {
+                data = {};
+            }
 
             if (!response.ok) {
 
@@ -167,10 +197,19 @@ function ForgotPassword() {
                 err
             );
 
-            setError(
-                err.message ||
-                "Invalid OTP. Please try again."
-            );
+            if (err instanceof TypeError) {
+
+                setError(
+                    "Unable to connect to the server. Please try again."
+                );
+
+            } else {
+
+                setError(
+                    err.message ||
+                    "Invalid OTP. Please try again."
+                );
+            }
 
         } finally {
 
@@ -213,13 +252,12 @@ function ForgotPassword() {
             setLoading(true);
 
             const response = await fetch(
-                "http://localhost:8081/api/auth/reset-password",
+                `${API_BASE_URL}/api/auth/reset-password`,
                 {
                     method: "POST",
 
                     headers: {
-                        "Content-Type":
-                            "application/json",
+                        "Content-Type": "application/json",
                     },
 
                     body: JSON.stringify({
@@ -230,7 +268,13 @@ function ForgotPassword() {
                 }
             );
 
-            const data = await response.json();
+            let data = {};
+
+            try {
+                data = await response.json();
+            } catch {
+                data = {};
+            }
 
             if (!response.ok) {
 
@@ -253,10 +297,19 @@ function ForgotPassword() {
                 err
             );
 
-            setError(
-                err.message ||
-                "Password reset failed."
-            );
+            if (err instanceof TypeError) {
+
+                setError(
+                    "Unable to connect to the server. Please try again."
+                );
+
+            } else {
+
+                setError(
+                    err.message ||
+                    "Password reset failed."
+                );
+            }
 
         } finally {
 
@@ -277,9 +330,7 @@ function ForgotPassword() {
                 <div className="auth-heading">
 
                     <div className="auth-security-icon">
-
                         <Mail size={29} />
-
                     </div>
 
                     <h1>
@@ -362,9 +413,7 @@ function ForgotPassword() {
                 <div className="auth-heading">
 
                     <div className="auth-security-icon">
-
                         <ShieldCheck size={30} />
-
                     </div>
 
                     <h1>
@@ -476,9 +525,7 @@ function ForgotPassword() {
                             cursor: "pointer"
                         }}
                     >
-
                         Use a different email
-
                     </button>
 
                 </div>
@@ -500,9 +547,7 @@ function ForgotPassword() {
                 <div className="auth-heading">
 
                     <div className="auth-security-icon">
-
                         <Lock size={29} />
-
                     </div>
 
                     <h1>
@@ -518,7 +563,6 @@ function ForgotPassword() {
 
 
                 <form onSubmit={handleResetPassword}>
-
 
                     {/* NEW PASSWORD */}
 
@@ -694,9 +738,7 @@ function ForgotPassword() {
                         navigate("/login")
                     }
                 >
-
                     Continue to Login
-
                 </button>
 
             </>
@@ -714,9 +756,7 @@ function ForgotPassword() {
 
             <div className="auth-background"></div>
 
-
             <div className="auth-container">
-
 
                 {/* BACK TO LOGIN */}
 
@@ -724,32 +764,24 @@ function ForgotPassword() {
                     to="/login"
                     className="back-home"
                 >
-
                     <ArrowLeft size={16} />
-
                     Back to Login
-
                 </Link>
 
 
                 <div className="auth-card">
-
 
                     {/* LOGO */}
 
                     <div className="auth-logo">
 
                         <div className="auth-logo-icon">
-
                             <Factory size={25} />
-
                         </div>
 
                         <span>
-
                             FACTORY
                             <span>X</span>
-
                         </span>
 
                     </div>
@@ -757,21 +789,13 @@ function ForgotPassword() {
 
                     {/* STEP CONTENT */}
 
-                    {step === 1 &&
-                        renderEmailStep()
-                    }
+                    {step === 1 && renderEmailStep()}
 
-                    {step === 2 &&
-                        renderOtpStep()
-                    }
+                    {step === 2 && renderOtpStep()}
 
-                    {step === 3 &&
-                        renderPasswordStep()
-                    }
+                    {step === 3 && renderPasswordStep()}
 
-                    {step === 4 &&
-                        renderSuccessStep()
-                    }
+                    {step === 4 && renderSuccessStep()}
 
 
                     {/* BOTTOM LINK */}
