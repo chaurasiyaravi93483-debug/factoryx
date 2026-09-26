@@ -22,7 +22,7 @@ import {
 
 import "../quality.css";
 
-const API_URL = "http://localhost:8081/api/quality";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/machines`;
 
 function Quality() {
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import "../Production.css";
 import {
     Activity,
     AlertTriangle,
@@ -23,7 +22,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import "../production.css";
+import "../Production.css";
 
 
 const API_URL = "http://localhost:8081/api/production";
