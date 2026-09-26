@@ -32,6 +32,17 @@ function Login() {
 
 
     // =========================================
+    // BACKEND API URL
+    // =========================================
+
+    const API_BASE_URL =
+        (
+            import.meta.env.VITE_API_URL ||
+            "https://factoryx-1.onrender.com"
+        ).replace(/\/$/, "");
+
+
+    // =========================================
     // LOGIN
     // =========================================
 
@@ -45,7 +56,7 @@ function Login() {
         try {
 
             const response = await fetch(
-                "http://localhost:8081/api/auth/login",
+                `${API_BASE_URL}/api/auth/login`,
                 {
                     method: "POST",
 
@@ -54,13 +65,19 @@ function Login() {
                     },
 
                     body: JSON.stringify({
-                        email: email,
+                        email: email.trim(),
                         password: password,
                     }),
                 }
             );
 
-            const data = await response.json();
+            let data = {};
+
+            try {
+                data = await response.json();
+            } catch {
+                data = {};
+            }
 
             if (!response.ok) {
 
@@ -77,6 +94,10 @@ function Login() {
                 );
             }
 
+            // =========================================
+            // SAVE LOGIN DATA
+            // =========================================
+
             localStorage.setItem(
                 "token",
                 data.token
@@ -84,8 +105,12 @@ function Login() {
 
             localStorage.setItem(
                 "userEmail",
-                email
+                email.trim()
             );
+
+            // =========================================
+            // GO TO DASHBOARD
+            // =========================================
 
             navigate("/dashboard");
 
@@ -96,10 +121,22 @@ function Login() {
                 err
             );
 
-            setError(
-                err.message ||
-                "Login failed. Please try again."
-            );
+            if (
+                err instanceof TypeError &&
+                err.message === "Failed to fetch"
+            ) {
+
+                setError(
+                    "Unable to connect to the server. Please try again."
+                );
+
+            } else {
+
+                setError(
+                    err.message ||
+                    "Login failed. Please try again."
+                );
+            }
 
         } finally {
 

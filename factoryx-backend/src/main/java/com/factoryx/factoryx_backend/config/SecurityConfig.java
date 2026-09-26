@@ -87,11 +87,14 @@ public class SecurityConfig {
                                 )
                                 .permitAll()
 
-                                // Authentication endpoints
+
+                                // Authentication + Health Check
                                 .requestMatchers(
-                                        "/api/auth/**"
+                                        "/api/auth/**",
+                                        "/health"
                                 )
                                 .permitAll()
+
 
                                 // All other APIs need JWT
                                 .anyRequest()
