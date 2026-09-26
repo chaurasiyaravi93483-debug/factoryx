@@ -2,7 +2,6 @@ package com.factoryx.factoryx_backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -15,21 +14,19 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration configuration =
-                new CorsConfiguration();
+        CorsConfiguration configuration = new CorsConfiguration();
 
         // =====================================================
         // ALLOWED FRONTENDS
         // =====================================================
 
-        configuration.setAllowedOrigins(
+        configuration.setAllowedOriginPatterns(
                 List.of(
                         "https://factoryx.vercel.app",
                         "http://localhost:*",
                         "http://127.0.0.1:*"
                 )
         );
-
 
         // =====================================================
         // ALLOWED METHODS
@@ -46,7 +43,6 @@ public class CorsConfig {
                 )
         );
 
-
         // =====================================================
         // ALLOWED HEADERS
         // =====================================================
@@ -54,7 +50,6 @@ public class CorsConfig {
         configuration.setAllowedHeaders(
                 List.of("*")
         );
-
 
         // =====================================================
         // EXPOSED HEADERS
@@ -64,13 +59,11 @@ public class CorsConfig {
                 List.of("Authorization")
         );
 
-
         // =====================================================
         // CREDENTIALS
         // =====================================================
 
         configuration.setAllowCredentials(true);
-
 
         // =====================================================
         // REGISTER CORS CONFIGURATION
