@@ -1,6 +1,6 @@
 /* =========================================================
-   FACTORYX HOME / LANDING PAGE
-   MATCHED WITH DASHBOARD THEME
+   FACTORYX HOME
+   SAME THEME AS LOGIN
 ========================================================= */
 
 * {
@@ -11,9 +11,15 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+html,
+body,
+#root {
     margin: 0;
     padding: 0;
+    min-height: 100%;
+}
+
+body {
     font-family: Inter, Arial, Helvetica, sans-serif;
     background: #031a1d;
     color: #ffffff;
@@ -30,31 +36,27 @@ input {
 
 
 /* =========================================================
-   MAIN
+   MAIN HOME
 ========================================================= */
 
 .factory-home {
     min-height: 100vh;
+    width: 100%;
 
     overflow-x: hidden;
 
     background:
             radial-gradient(
-                    circle at 78% 10%,
-                    rgba(0, 205, 208, 0.08),
-                    transparent 28%
-            ),
-            radial-gradient(
-                    circle at 15% 45%,
-                    rgba(255, 211, 63, 0.035),
-                    transparent 30%
+                    circle at 50% 0%,
+                    rgba(0, 208, 211, 0.06),
+                    transparent 38%
             ),
             linear-gradient(
                     135deg,
                     #031a1d 0%,
-                    #042528 50%,
-                    #02181b 100%
-            );
+                    #042629 50%,
+                    #031a1d 100%
+            ) !important;
 
     color: #ffffff;
 }
@@ -71,20 +73,20 @@ input {
 
     z-index: 1000;
 
+    width: 100%;
     height: 92px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding:
-            0 6.5%;
+    padding: 0 6.5%;
 
     background:
-            rgba(3, 26, 29, 0.92);
+            rgba(3, 26, 29, 0.96) !important;
 
     border-bottom:
-            1px solid rgba(255, 255, 255, 0.08);
+            1px solid rgba(0, 214, 217, 0.14);
 
     backdrop-filter: blur(18px);
 }
@@ -120,19 +122,19 @@ input {
     align-items: center;
     justify-content: center;
 
-    color: #152000;
+    color: #132000;
 
     background:
             linear-gradient(
                     135deg,
-                    #ffe26a,
+                    #ffe36b,
                     #f4b72f
             );
 
     border-radius: 12px;
 
     box-shadow:
-            0 0 24px
+            0 0 25px
             rgba(255, 211, 63, 0.13);
 }
 
@@ -149,7 +151,7 @@ input {
 }
 
 .nav-links > a:not(.nav-login) {
-    color: #9aabad;
+    color: #91a6a7;
 
     font-size: 14px;
     font-weight: 500;
@@ -164,7 +166,7 @@ input {
 
 
 /* =========================================================
-   LOGIN
+   NAV LOGIN
 ========================================================= */
 
 .nav-login {
@@ -176,6 +178,9 @@ input {
     justify-content: center;
 
     color: #ffd33f;
+
+    background:
+            rgba(255, 211, 63, 0.015);
 
     border:
             1px solid rgba(255, 211, 63, 0.75);
@@ -234,7 +239,7 @@ input {
 
 
 /* =========================================================
-   HERO GLOW
+   HERO BACKGROUND GLOW
 ========================================================= */
 
 .hero-section::before {
@@ -251,7 +256,7 @@ input {
     border-radius: 50%;
 
     background:
-            rgba(255, 211, 63, 0.035);
+            rgba(0, 208, 211, 0.045);
 
     filter: blur(100px);
 
@@ -299,10 +304,6 @@ input {
     font-weight: 900;
 
     letter-spacing: 1.5px;
-
-    box-shadow:
-            0 0 25px
-            rgba(255, 211, 63, 0.025);
 }
 
 .status-dot {
@@ -349,11 +350,8 @@ input {
 
     color: #ffffff;
 
-    font-size: clamp(
-            42px,
-            4.1vw,
-            68px
-    );
+    font-size:
+            clamp(42px, 4.1vw, 68px);
 
     line-height: 1.08;
 
@@ -430,12 +428,12 @@ input {
 }
 
 .primary-btn {
-    color: #101700;
+    color: #121900;
 
     background:
             linear-gradient(
                     135deg,
-                    #ffe269,
+                    #ffe16a,
                     #ffd13d
             );
 
@@ -449,7 +447,7 @@ input {
 
     box-shadow:
             0 12px 32px
-            rgba(255, 211, 63, 0.18);
+            rgba(255, 211, 63, 0.20);
 }
 
 .outline-btn {
@@ -459,7 +457,7 @@ input {
             rgba(255, 255, 255, 0.015);
 
     border:
-            1px solid rgba(255, 255, 255, 0.16);
+            1px solid rgba(0, 214, 217, 0.25);
 }
 
 .outline-btn:hover {
@@ -525,11 +523,6 @@ input {
     align-items: center;
 }
 
-
-/* =========================================================
-   VISUAL GLOW
-========================================================= */
-
 .visual-glow {
     position: absolute;
 
@@ -539,7 +532,7 @@ input {
     background:
             radial-gradient(
                     circle,
-                    rgba(0, 208, 211, 0.11),
+                    rgba(0, 208, 211, 0.10),
                     transparent 67%
             );
 
@@ -569,7 +562,7 @@ input {
             );
 
     border:
-            1px solid rgba(0, 218, 220, 0.20);
+            1px solid rgba(0, 214, 217, 0.20);
 
     border-radius: 20px;
 
@@ -682,7 +675,7 @@ input {
     padding: 16px;
 
     background:
-            rgba(255, 255, 255, 0.025);
+            rgba(2, 19, 21, 0.48);
 
     border:
             1px solid rgba(255, 255, 255, 0.07);
@@ -737,11 +730,6 @@ input {
     color: #ffd33f;
 }
 
-
-/* =========================================================
-   WARNING CARD
-========================================================= */
-
 .warning-card {
     border-color:
             rgba(255, 211, 63, 0.10);
@@ -758,7 +746,7 @@ input {
     padding: 17px;
 
     background:
-            rgba(255, 255, 255, 0.018);
+            rgba(2, 19, 21, 0.38);
 
     border:
             1px solid rgba(255, 255, 255, 0.06);
@@ -778,7 +766,7 @@ input {
 
 
 /* =========================================================
-   FAKE CHART
+   CHART
 ========================================================= */
 
 .fake-chart {
@@ -797,12 +785,6 @@ input {
 
     border-bottom:
             1px solid rgba(255, 255, 255, 0.07);
-}
-
-.fake-chart::before {
-    content: "";
-
-    position: absolute;
 }
 
 .fake-chart div {
@@ -834,13 +816,12 @@ input {
 .fake-chart div:hover {
     transform: translateY(-4px);
 
-    filter:
-            brightness(1.15);
+    filter: brightness(1.15);
 }
 
 
 /* =========================================================
-   SECTION
+   COMMON SECTIONS
 ========================================================= */
 
 .features-section,
@@ -856,7 +837,7 @@ input {
 
 
 /* =========================================================
-   FEATURES
+   FEATURES SECTION
 ========================================================= */
 
 .features-section {
@@ -885,11 +866,8 @@ input {
 
     color: #ffffff;
 
-    font-size: clamp(
-            30px,
-            3vw,
-            43px
-    );
+    font-size:
+            clamp(30px, 3vw, 43px);
 
     line-height: 1.15;
 
@@ -937,12 +915,12 @@ input {
     background:
             linear-gradient(
                     145deg,
-                    #06393c,
-                    #042b2e
+                    #082f32,
+                    #052326
             );
 
     border:
-            1px solid rgba(0, 211, 214, 0.14);
+            1px solid rgba(0, 214, 217, 0.15);
 
     border-radius: 15px;
 
@@ -987,9 +965,7 @@ input {
 
     box-shadow:
             0 18px 40px
-            rgba(0, 0, 0, 0.22),
-            0 0 25px
-            rgba(0, 208, 211, 0.035);
+            rgba(0, 0, 0, 0.22);
 }
 
 .feature-card:hover::before {
@@ -1015,7 +991,7 @@ input {
             rgba(0, 211, 214, 0.09);
 
     border:
-            1px solid rgba(0, 211, 214, 0.08);
+            1px solid rgba(0, 211, 214, 0.10);
 
     border-radius: 11px;
 
@@ -1092,10 +1068,10 @@ input {
     padding-bottom: 110px;
 
     border-top:
-            1px solid rgba(255, 255, 255, 0.06);
+            1px solid rgba(0, 214, 217, 0.10);
 
     border-bottom:
-            1px solid rgba(255, 255, 255, 0.06);
+            1px solid rgba(0, 214, 217, 0.10);
 }
 
 
@@ -1109,11 +1085,8 @@ input {
 
     color: #ffffff;
 
-    font-size: clamp(
-            32px,
-            3.2vw,
-            49px
-    );
+    font-size:
+            clamp(32px, 3.2vw, 49px);
 
     line-height: 1.12;
 
@@ -1172,7 +1145,7 @@ input {
 
 
 /* =========================================================
-   AI CHAT PREVIEW
+   AI CHAT
 ========================================================= */
 
 .ai-chat-preview {
@@ -1374,6 +1347,7 @@ input {
     color: #ff7777;
 
     font-size: 7px;
+
     font-weight: 900;
 }
 
@@ -1438,18 +1412,18 @@ input {
     background:
             linear-gradient(
                     145deg,
-                    rgba(5, 57, 60, 0.72),
-                    rgba(3, 31, 34, 0.72)
+                    #083336,
+                    #052326
             );
 
     border:
-            1px solid rgba(255, 211, 63, 0.13);
+            1px solid rgba(0, 214, 217, 0.15);
 
     border-radius: 20px;
 
     box-shadow:
-            inset 0 0 45px
-            rgba(255, 211, 63, 0.012);
+            0 25px 60px
+            rgba(0, 0, 0, 0.22);
 }
 
 .cta-section h2 {
@@ -1458,11 +1432,8 @@ input {
 
     color: #ffffff;
 
-    font-size: clamp(
-            31px,
-            3.2vw,
-            46px
-    );
+    font-size:
+            clamp(31px, 3.2vw, 46px);
 
     line-height: 1.15;
 
@@ -1501,8 +1472,11 @@ input {
     padding:
             0 6.5%;
 
+    background:
+            #031a1d;
+
     border-top:
-            1px solid rgba(255, 255, 255, 0.07);
+            1px solid rgba(0, 214, 217, 0.10);
 
     color: #607879;
 }
@@ -1566,7 +1540,6 @@ input {
     .feature-grid {
         gap: 13px;
     }
-
 }
 
 
@@ -1604,8 +1577,6 @@ input {
         font-size: 12px;
     }
 
-
-    /* Hero */
 
     .hero-section {
         min-height: auto;
@@ -1652,15 +1623,11 @@ input {
     }
 
 
-    /* Features */
-
     .feature-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
     }
 
-
-    /* AI */
 
     .ai-section {
         grid-template-columns: 1fr;
@@ -1677,7 +1644,6 @@ input {
     .ai-chat-preview {
         justify-self: center;
     }
-
 }
 
 
@@ -1730,8 +1696,6 @@ input {
         border-radius: 8px;
     }
 
-
-    /* Hero */
 
     .hero-section {
         padding:
@@ -1803,8 +1767,6 @@ input {
     }
 
 
-    /* Preview */
-
     .dashboard-preview {
         padding: 15px;
 
@@ -1874,8 +1836,6 @@ input {
     }
 
 
-    /* Features */
-
     .features-section {
         padding-top: 75px;
         padding-bottom: 75px;
@@ -1927,8 +1887,6 @@ input {
         bottom: 18px;
     }
 
-
-    /* AI */
 
     .ai-section {
         padding-top: 75px;
@@ -1992,8 +1950,6 @@ input {
     }
 
 
-    /* CTA */
-
     .cta-section {
         padding-top: 70px;
         padding-bottom: 70px;
@@ -2015,8 +1971,6 @@ input {
     }
 
 
-    /* Footer */
-
     .footer {
         min-height: 125px;
 
@@ -2035,7 +1989,6 @@ input {
     .footer p {
         font-size: 8px;
     }
-
 }
 
 
@@ -2067,8 +2020,6 @@ input {
         font-size: 10px;
     }
 
-
-    /* Hero */
 
     .hero-section {
         padding:
@@ -2109,8 +2060,6 @@ input {
     }
 
 
-    /* Preview */
-
     .dashboard-preview {
         padding: 11px;
     }
@@ -2124,9 +2073,11 @@ input {
 
         display: grid;
 
-        grid-template-columns: 25px 1fr auto;
+        grid-template-columns:
+            25px 1fr auto;
 
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows:
+            1fr 1fr;
 
         column-gap: 8px;
 
@@ -2168,8 +2119,6 @@ input {
     }
 
 
-    /* Features */
-
     .features-section,
     .ai-section,
     .cta-section {
@@ -2186,8 +2135,6 @@ input {
     }
 
 
-    /* AI */
-
     .ai-content h2 {
         font-size: 27px;
     }
@@ -2197,8 +2144,6 @@ input {
     }
 
 
-    /* CTA */
-
     .cta-section > div {
         padding:
                 42px 17px;
@@ -2207,7 +2152,6 @@ input {
     .cta-section h2 {
         font-size: 26px;
     }
-
 }
 
 
@@ -2245,5 +2189,4 @@ input {
     .feature-card {
         padding: 17px;
     }
-
 }

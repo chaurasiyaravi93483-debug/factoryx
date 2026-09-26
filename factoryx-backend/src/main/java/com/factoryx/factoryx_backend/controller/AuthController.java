@@ -35,11 +35,9 @@ public class AuthController {
 
         try {
 
-            User user =
-                    authService.register(request);
+            User user = authService.register(request);
 
-            Map<String, Object> response =
-                    new HashMap<>();
+            Map<String, Object> response = new HashMap<>();
 
             response.put(
                     "message",
@@ -72,8 +70,7 @@ public class AuthController {
 
         } catch (RuntimeException e) {
 
-            Map<String, String> error =
-                    new HashMap<>();
+            Map<String, String> error = new HashMap<>();
 
             error.put(
                     "message",
@@ -133,6 +130,189 @@ public class AuthController {
 
             return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)
+                    .body(error);
+        }
+    }
+
+
+    // =========================================
+    // FORGOT PASSWORD
+    // SEND OTP
+    // =========================================
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(
+            @RequestBody Map<String, String> request
+    ) {
+
+        try {
+
+            String email = request.get("email");
+
+            if (email == null || email.isBlank()) {
+
+                throw new RuntimeException(
+                        "Email is required"
+                );
+            }
+
+            authService.forgotPassword(email);
+
+            Map<String, String> response =
+                    new HashMap<>();
+
+            response.put(
+                    "message",
+                    "OTP sent successfully to your email"
+            );
+
+            return ResponseEntity.ok(response);
+
+        } catch (RuntimeException e) {
+
+            Map<String, String> error =
+                    new HashMap<>();
+
+            error.put(
+                    "message",
+                    e.getMessage()
+            );
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(error);
+        }
+    }
+
+
+    // =========================================
+    // VERIFY OTP
+    // =========================================
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<?> verifyOtp(
+            @RequestBody Map<String, String> request
+    ) {
+
+        try {
+
+            String email = request.get("email");
+            String otp = request.get("otp");
+
+            if (email == null || email.isBlank()) {
+
+                throw new RuntimeException(
+                        "Email is required"
+                );
+            }
+
+            if (otp == null || otp.isBlank()) {
+
+                throw new RuntimeException(
+                        "OTP is required"
+                );
+            }
+
+            authService.verifyOtp(
+                    email,
+                    otp
+            );
+
+            Map<String, String> response =
+                    new HashMap<>();
+
+            response.put(
+                    "message",
+                    "OTP verified successfully"
+            );
+
+            return ResponseEntity.ok(response);
+
+        } catch (RuntimeException e) {
+
+            Map<String, String> error =
+                    new HashMap<>();
+
+            error.put(
+                    "message",
+                    e.getMessage()
+            );
+
+            return ResponseEntity
+                    .badRequest()
+                    .body(error);
+        }
+    }
+
+
+    // =========================================
+    // RESET PASSWORD
+    // =========================================
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(
+            @RequestBody Map<String, String> request
+    ) {
+
+        try {
+
+            String email = request.get("email");
+            String otp = request.get("otp");
+            String newPassword =
+                    request.get("newPassword");
+
+            if (email == null || email.isBlank()) {
+
+                throw new RuntimeException(
+                        "Email is required"
+                );
+            }
+
+            if (otp == null || otp.isBlank()) {
+
+                throw new RuntimeException(
+                        "OTP is required"
+                );
+            }
+
+            if (
+                    newPassword == null ||
+                            newPassword.isBlank()
+            ) {
+
+                throw new RuntimeException(
+                        "New password is required"
+                );
+            }
+
+            authService.resetPassword(
+                    email,
+                    otp,
+                    newPassword
+            );
+
+            Map<String, String> response =
+                    new HashMap<>();
+
+            response.put(
+                    "message",
+                    "Password reset successfully"
+            );
+
+            return ResponseEntity.ok(response);
+
+        } catch (RuntimeException e) {
+
+            Map<String, String> error =
+                    new HashMap<>();
+
+            error.put(
+                    "message",
+                    e.getMessage()
+            );
+
+            return ResponseEntity
+                    .badRequest()
                     .body(error);
         }
     }

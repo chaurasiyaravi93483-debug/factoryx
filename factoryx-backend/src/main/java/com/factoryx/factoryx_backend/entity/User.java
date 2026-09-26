@@ -33,6 +33,13 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    // Forgot Password OTP
+    @Column(name = "reset_otp")
+    private String resetOtp;
+
+    @Column(name = "reset_otp_expiry")
+    private LocalDateTime resetOtpExpiry;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();

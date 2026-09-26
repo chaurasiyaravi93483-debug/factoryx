@@ -1,6 +1,6 @@
 /* =========================================================
    FACTORYX AUTH
-   LOGIN / REGISTER
+   LOGIN / REGISTER / FORGOT PASSWORD
    MATCHED WITH HOME + DASHBOARD
 ========================================================= */
 
@@ -38,8 +38,7 @@ body {
 
     overflow-x: hidden;
 
-    padding:
-            40px 20px;
+    padding: 40px 20px;
 
     background:
             radial-gradient(
@@ -62,7 +61,7 @@ body {
 
 
 /* =========================================================
-   BACKGROUND
+   BACKGROUND GRID
 ========================================================= */
 
 .auth-background {
@@ -83,8 +82,7 @@ body {
                     transparent 1px
             );
 
-    background-size:
-            70px 70px;
+    background-size: 70px 70px;
 
     mask-image:
             linear-gradient(
@@ -105,9 +103,11 @@ body {
     z-index: 2;
 
     width: 100%;
+
     max-width: 540px;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -115,13 +115,14 @@ body {
 
 
 /* =========================================================
-   BACK HOME
+   BACK HOME / BACK TO LOGIN
 ========================================================= */
 
 .back-home {
     width: 100%;
 
     display: flex;
+
     align-items: center;
 
     gap: 9px;
@@ -131,6 +132,7 @@ body {
     color: #74898a;
 
     font-size: 13px;
+
     font-weight: 600;
 
     text-decoration: none;
@@ -155,6 +157,14 @@ body {
     transform: translateX(-3px);
 }
 
+.back-home:focus-visible {
+    outline: 2px solid #ffd33f;
+
+    outline-offset: 4px;
+
+    border-radius: 4px;
+}
+
 
 /* =========================================================
    AUTH CARD
@@ -163,8 +173,7 @@ body {
 .auth-card {
     width: 100%;
 
-    padding:
-            48px 48px 42px;
+    padding: 48px 48px 42px;
 
     background:
             linear-gradient(
@@ -179,10 +188,8 @@ body {
     border-radius: 18px;
 
     box-shadow:
-            0 35px 80px
-            rgba(0, 0, 0, 0.45),
-            0 0 50px
-            rgba(0, 204, 207, 0.035);
+            0 35px 80px rgba(0, 0, 0, 0.45),
+            0 0 50px rgba(0, 204, 207, 0.035);
 
     position: relative;
 
@@ -190,7 +197,9 @@ body {
 }
 
 
-/* Top glowing line */
+/* =========================================================
+   CARD TOP GLOW
+========================================================= */
 
 .auth-card::before {
     content: "";
@@ -198,7 +207,9 @@ body {
     position: absolute;
 
     top: 0;
+
     left: 10%;
+
     right: 10%;
 
     height: 1px;
@@ -219,7 +230,9 @@ body {
 
 .auth-logo {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 13px;
@@ -229,6 +242,7 @@ body {
     color: #ffffff;
 
     font-size: 27px;
+
     font-weight: 900;
 
     letter-spacing: -1px;
@@ -245,10 +259,13 @@ body {
 
 .auth-logo-icon {
     width: 52px;
+
     height: 52px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     color: #132000;
@@ -284,14 +301,14 @@ body {
     color: #ffffff;
 
     font-size: 31px;
+
     font-weight: 800;
 
     letter-spacing: -1px;
 }
 
 .auth-heading p {
-    margin:
-            10px auto 0;
+    margin: 10px auto 0;
 
     max-width: 390px;
 
@@ -328,6 +345,7 @@ body {
     color: #b9c6c7;
 
     font-size: 11px;
+
     font-weight: 800;
 
     letter-spacing: 0.2px;
@@ -342,9 +360,11 @@ body {
     position: relative;
 
     width: 100%;
+
     min-height: 58px;
 
     display: flex;
+
     align-items: center;
 
     background:
@@ -365,10 +385,13 @@ body {
 }
 
 
-/* Icon */
+/* =========================================================
+   INPUT ICON
+========================================================= */
 
 .input-wrapper > svg {
     width: 20px;
+
     height: 20px;
 
     flex-shrink: 0;
@@ -388,12 +411,12 @@ body {
 
 .input-wrapper input {
     width: 100%;
+
     height: 56px;
 
     min-width: 0;
 
-    padding:
-            0 15px;
+    padding: 0 15px;
 
     color: #edf4f4;
 
@@ -405,11 +428,10 @@ body {
 
     font-size: 13px;
 
+    font-family: inherit;
+
     cursor: text;
 }
-
-
-/* Placeholder */
 
 .input-wrapper input::placeholder {
     color: #536b6c;
@@ -418,7 +440,9 @@ body {
 }
 
 
-/* Focus */
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
 
 .input-wrapper:focus-within {
     background:
@@ -430,6 +454,7 @@ body {
     box-shadow:
             0 0 0 3px
             rgba(255, 211, 63, 0.06),
+
             0 0 25px
             rgba(255, 211, 63, 0.055);
 
@@ -449,6 +474,7 @@ body {
 .input-wrapper input:-webkit-autofill:hover,
 .input-wrapper input:-webkit-autofill:focus,
 .input-wrapper input:-webkit-autofill:active {
+
     -webkit-text-fill-color: #edf4f4 !important;
 
     caret-color: #ffffff;
@@ -470,12 +496,15 @@ body {
 
 .password-toggle {
     width: 54px;
+
     height: 56px;
 
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     color: #6c8182;
@@ -519,20 +548,24 @@ body {
 
 .auth-options {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 15px;
 
-    margin:
-            5px 0 26px;
+    margin: 5px 0 26px;
 }
 
 
-/* Remember */
+/* =========================================================
+   REMEMBER ME
+========================================================= */
 
 .remember {
     display: flex;
+
     align-items: center;
 
     gap: 8px;
@@ -548,6 +581,7 @@ body {
 
 .remember input {
     width: 15px;
+
     height: 15px;
 
     margin: 0;
@@ -562,12 +596,15 @@ body {
 }
 
 
-/* Forgot */
+/* =========================================================
+   FORGOT PASSWORD LINK
+========================================================= */
 
 .auth-options > a {
     color: #ffd33f;
 
     font-size: 10px;
+
     font-weight: 700;
 
     text-decoration: none;
@@ -587,19 +624,47 @@ body {
     text-decoration: underline;
 }
 
+.auth-options > a:focus-visible {
+    outline:
+            2px solid #ffd33f;
+
+    outline-offset: 4px;
+
+    border-radius: 4px;
+}
+
 
 /* =========================================================
-   ERROR
+   ERROR MESSAGE
+   Used by Login + Register + Forgot Password
 ========================================================= */
 
-.auth-card form > div[style] {
+.auth-error {
+    width: 100%;
+
+    margin-top: 10px;
+
+    margin-bottom: 12px;
+
+    padding: 11px 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 8px;
+
     background:
-            rgba(255, 70, 70, 0.055) !important;
+            rgba(255, 70, 70, 0.055);
 
     border:
-            1px solid rgba(255, 70, 70, 0.25) !important;
+            1px solid rgba(255, 70, 70, 0.25);
 
-    color: #ff8585 !important;
+    color: #ff8585;
+
+    font-size: 12px;
+
+    line-height: 1.5;
 
     box-shadow:
             inset 0 0 20px
@@ -608,15 +673,55 @@ body {
 
 
 /* =========================================================
-   SUBMIT
+   SUCCESS MESSAGE
+========================================================= */
+
+.auth-success {
+    width: 100%;
+
+    margin-top: 10px;
+
+    margin-bottom: 12px;
+
+    padding: 11px 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 8px;
+
+    background:
+            rgba(50, 220, 150, 0.055);
+
+    border:
+            1px solid rgba(50, 220, 150, 0.25);
+
+    color: #65e6b2;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    box-shadow:
+            inset 0 0 20px
+            rgba(50, 220, 150, 0.02);
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
 ========================================================= */
 
 .auth-submit {
     width: 100%;
+
     height: 58px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     color: #121900;
@@ -632,7 +737,10 @@ body {
 
     border-radius: 11px;
 
+    font-family: inherit;
+
     font-size: 15px;
+
     font-weight: 900;
 
     cursor: pointer;
@@ -671,17 +779,75 @@ body {
 
 
 /* =========================================================
+   OTP INPUT
+========================================================= */
+
+.otp-input {
+    text-align: center !important;
+
+    letter-spacing: 8px !important;
+
+    font-size: 20px !important;
+
+    font-weight: 800 !important;
+
+    color: #ffd33f !important;
+}
+
+.otp-input::placeholder {
+    letter-spacing: 3px !important;
+
+    font-size: 12px !important;
+
+    color: #536b6c !important;
+}
+
+
+/* =========================================================
+   OTP / SECURITY ICON
+========================================================= */
+
+.auth-security-icon {
+    width: 58px;
+
+    height: 58px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffd33f;
+
+    background:
+            rgba(255, 211, 63, 0.06);
+
+    border:
+            1px solid rgba(255, 211, 63, 0.16);
+
+    border-radius: 15px;
+
+    box-shadow:
+            0 0 25px
+            rgba(255, 211, 63, 0.05);
+}
+
+
+/* =========================================================
    DIVIDER
 ========================================================= */
 
 .auth-divider {
     display: flex;
+
     align-items: center;
 
     gap: 15px;
 
-    margin:
-            32px 0 27px;
+    margin: 32px 0 27px;
 }
 
 .auth-divider::before,
@@ -700,12 +866,13 @@ body {
     color: #526869;
 
     font-size: 9px;
+
     font-weight: 700;
 }
 
 
 /* =========================================================
-   REGISTER
+   REGISTER / LOGIN LINK
 ========================================================= */
 
 .auth-register {
@@ -725,6 +892,8 @@ body {
 
     font-weight: 800;
 
+    text-decoration: none;
+
     transition:
             color 0.2s ease,
             text-shadow 0.2s ease;
@@ -740,14 +909,22 @@ body {
     text-decoration: underline;
 }
 
+.auth-register a:focus-visible {
+    outline:
+            2px solid #ffd33f;
+
+    outline-offset: 4px;
+
+    border-radius: 4px;
+}
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .auth-footer {
-    margin:
-            20px 0 0;
+    margin: 20px 0 0;
 
     color: #435a5b;
 
@@ -760,18 +937,12 @@ body {
 
 
 /* =========================================================
-   FOCUS ACCESSIBILITY
+   ACCESSIBILITY
 ========================================================= */
 
-.back-home:focus-visible,
-.auth-options a:focus-visible,
-.auth-register a:focus-visible {
-    outline:
-            2px solid #ffd33f;
-
-    outline-offset: 4px;
-
-    border-radius: 4px;
+button:focus-visible,
+input:focus-visible {
+    outline: none;
 }
 
 
@@ -784,8 +955,7 @@ body {
     .auth-page {
         align-items: flex-start;
 
-        padding:
-                25px 15px 35px;
+        padding: 25px 15px 35px;
     }
 
     .auth-container {
@@ -793,8 +963,7 @@ body {
     }
 
     .auth-card {
-        padding:
-                38px 30px 32px;
+        padding: 38px 30px 32px;
 
         border-radius: 15px;
     }
@@ -807,6 +976,7 @@ body {
 
     .auth-logo-icon {
         width: 48px;
+
         height: 48px;
     }
 
@@ -814,6 +984,9 @@ body {
         font-size: 28px;
     }
 
+    .auth-heading {
+        margin-bottom: 28px;
+    }
 }
 
 
@@ -824,8 +997,7 @@ body {
 @media (max-width: 520px) {
 
     .auth-page {
-        padding:
-                18px 12px 30px;
+        padding: 18px 12px 30px;
     }
 
     .back-home {
@@ -835,8 +1007,7 @@ body {
     }
 
     .auth-card {
-        padding:
-                30px 19px 28px;
+        padding: 30px 19px 28px;
     }
 
     .auth-logo {
@@ -849,6 +1020,7 @@ body {
 
     .auth-logo-icon {
         width: 43px;
+
         height: 43px;
 
         border-radius: 10px;
@@ -856,6 +1028,7 @@ body {
 
     .auth-logo-icon svg {
         width: 21px;
+
         height: 21px;
     }
 
@@ -897,6 +1070,7 @@ body {
 
     .input-wrapper > svg {
         width: 18px;
+
         height: 18px;
 
         margin-left: 14px;
@@ -913,8 +1087,7 @@ body {
     }
 
     .auth-divider {
-        margin:
-                27px 0 23px;
+        margin: 27px 0 23px;
     }
 
     .auth-register {
@@ -923,6 +1096,19 @@ body {
 
     .auth-footer {
         font-size: 8px;
+    }
+
+    .auth-error,
+    .auth-success {
+        font-size: 11px;
+
+        padding: 10px 11px;
+    }
+
+    .otp-input {
+        letter-spacing: 6px !important;
+
+        font-size: 18px !important;
     }
 
 }
@@ -935,13 +1121,11 @@ body {
 @media (max-width: 380px) {
 
     .auth-page {
-        padding:
-                12px 9px 25px;
+        padding: 12px 9px 25px;
     }
 
     .auth-card {
-        padding:
-                26px 15px 25px;
+        padding: 26px 15px 25px;
     }
 
     .auth-logo {
@@ -950,6 +1134,7 @@ body {
 
     .auth-logo-icon {
         width: 39px;
+
         height: 39px;
     }
 
@@ -970,4 +1155,16 @@ body {
         font-size: 9px;
     }
 
+    .auth-error,
+    .auth-success {
+        font-size: 10px;
+
+        padding: 9px 10px;
+    }
+
+    .otp-input {
+        letter-spacing: 5px !important;
+
+        font-size: 17px !important;
+    }
 }

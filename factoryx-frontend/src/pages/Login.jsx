@@ -42,7 +42,6 @@ function Login() {
         setError("");
         setLoading(true);
 
-
         try {
 
             const response = await fetch(
@@ -51,8 +50,7 @@ function Login() {
                     method: "POST",
 
                     headers: {
-                        "Content-Type":
-                            "application/json",
+                        "Content-Type": "application/json",
                     },
 
                     body: JSON.stringify({
@@ -62,9 +60,7 @@ function Login() {
                 }
             );
 
-
             const data = await response.json();
-
 
             if (!response.ok) {
 
@@ -74,11 +70,6 @@ function Login() {
                 );
             }
 
-
-            // =====================================
-            // SAVE JWT TOKEN
-            // =====================================
-
             if (!data.token) {
 
                 throw new Error(
@@ -86,26 +77,17 @@ function Login() {
                 );
             }
 
-
             localStorage.setItem(
                 "token",
                 data.token
             );
 
-
-            // Optional: save email
             localStorage.setItem(
                 "userEmail",
                 email
             );
 
-
-            // =====================================
-            // GO TO DASHBOARD
-            // =====================================
-
             navigate("/dashboard");
-
 
         } catch (err) {
 
@@ -130,22 +112,16 @@ function Login() {
 
         <div className="auth-page">
 
-
             <div className="auth-background"></div>
 
-
             <div className="auth-container">
-
 
                 <Link
                     to="/"
                     className="back-home"
                 >
-
                     <ArrowLeft size={16} />
-
                     Back to Home
-
                 </Link>
 
 
@@ -157,17 +133,12 @@ function Login() {
                     <div className="auth-logo">
 
                         <div className="auth-logo-icon">
-
                             <Factory size={25} />
-
                         </div>
 
-
                         <span>
-
                             FACTORY
                             <span>X</span>
-
                         </span>
 
                     </div>
@@ -181,7 +152,6 @@ function Login() {
                             Welcome back
                         </h1>
 
-
                         <p>
                             Sign in to access your factory intelligence dashboard.
                         </p>
@@ -191,9 +161,7 @@ function Login() {
 
                     {/* LOGIN FORM */}
 
-                    <form
-                        onSubmit={handleLogin}
-                    >
+                    <form onSubmit={handleLogin}>
 
 
                         {/* EMAIL */}
@@ -204,11 +172,9 @@ function Login() {
                                 Email Address
                             </label>
 
-
                             <div className="input-wrapper">
 
                                 <Mail size={18} />
-
 
                                 <input
                                     type="email"
@@ -235,11 +201,9 @@ function Login() {
                                 Password
                             </label>
 
-
                             <div className="input-wrapper">
 
                                 <Lock size={18} />
-
 
                                 <input
                                     type={
@@ -257,7 +221,6 @@ function Login() {
                                     required
                                 />
 
-
                                 <button
                                     type="button"
                                     className="password-toggle"
@@ -269,13 +232,9 @@ function Login() {
                                 >
 
                                     {showPassword ? (
-
                                         <EyeOff size={18} />
-
                                     ) : (
-
                                         <Eye size={18} />
-
                                     )}
 
                                 </button>
@@ -303,9 +262,7 @@ function Login() {
                                     fontSize: "14px",
                                 }}
                             >
-
                                 {error}
-
                             </div>
 
                         )}
@@ -328,9 +285,9 @@ function Login() {
                             </label>
 
 
-                            <a href="#forgot">
+                            <Link to="/forgot-password">
                                 Forgot password?
-                            </a>
+                            </Link>
 
                         </div>
 
@@ -369,11 +326,8 @@ function Login() {
 
                         Don't have an account?
 
-
                         <Link to="/register">
-
                             Create account
-
                         </Link>
 
                     </p>

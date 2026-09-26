@@ -13,6 +13,7 @@ import Incidents from "./pages/Incidents";
 import AIAssistant from "./pages/AIAssistant";
 import Documents from "./pages/Documents";
 import Reports from "./pages/Reports";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
     return (
@@ -70,6 +71,11 @@ function App() {
                 <Route path="/documents" element={<Documents />} />
 
                 <Route path="/reports" element={<Reports />} />
+
+                <Route
+                    path="/forgot-password"
+                    element={<ForgotPassword />}
+                />
 
             </Routes>
 
