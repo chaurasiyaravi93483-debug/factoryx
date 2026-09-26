@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.springframework.http.HttpMethod;
-
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
@@ -15,13 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.List;
-
 
 @Configuration
 @RequiredArgsConstructor
@@ -38,62 +29,6 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
 
         return new BCryptPasswordEncoder();
-    }
-
-
-    // =====================================================
-    // CORS CONFIGURATION
-    // =====================================================
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-
-        CorsConfiguration configuration =
-                new CorsConfiguration();
-
-        // Allowed frontend URLs
-        configuration.setAllowedOrigins(
-                List.of(
-                        "https://factoryx.vercel.app",
-                        "http://localhost:5173"
-                )
-        );
-
-        // Allowed HTTP methods
-        configuration.setAllowedMethods(
-                List.of(
-                        HttpMethod.GET.name(),
-                        HttpMethod.POST.name(),
-                        HttpMethod.PUT.name(),
-                        HttpMethod.DELETE.name(),
-                        HttpMethod.PATCH.name(),
-                        HttpMethod.OPTIONS.name()
-                )
-        );
-
-        // Allowed request headers
-        configuration.setAllowedHeaders(
-                List.of("*")
-        );
-
-        // JWT is being sent in Authorization header,
-        // not browser cookies.
-        configuration.setAllowCredentials(false);
-
-        // Optional response headers exposed to browser
-        configuration.setExposedHeaders(
-                List.of("Authorization")
-        );
-
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
-
-        source.registerCorsConfiguration(
-                "/**",
-                configuration
-        );
-
-        return source;
     }
 
 
@@ -121,11 +56,9 @@ public class SecurityConfig {
                 // CORS
                 // -------------------------------------------------
 
-                .cors(cors ->
-                        cors.configurationSource(
-                                corsConfigurationSource()
-                        )
-                )
+                // CorsConfig.java already provides
+                // CorsConfigurationSource bean.
+                .cors(cors -> {})
 
 
                 // -------------------------------------------------
@@ -147,20 +80,20 @@ public class SecurityConfig {
 
                         auth
 
-                                // Preflight requests
+                                // CORS preflight
                                 .requestMatchers(
-                                        HttpMethod.OPTIONS,
+                                        org.springframework.http.HttpMethod.OPTIONS,
                                         "/**"
                                 )
                                 .permitAll()
 
-                                // Login / Register / Forgot Password
+                                // Authentication endpoints
                                 .requestMatchers(
                                         "/api/auth/**"
                                 )
                                 .permitAll()
 
-                                // Everything else requires JWT
+                                // All other APIs need JWT
                                 .anyRequest()
                                 .authenticated()
                 )
