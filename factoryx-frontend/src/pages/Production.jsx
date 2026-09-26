@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import "../Production.css";
 
 
-const API_URL = "http://localhost:8081/api/production";
+const API_URL = "https://factoryx-1.onrender.com";
 
 
 const getToken = () => {
